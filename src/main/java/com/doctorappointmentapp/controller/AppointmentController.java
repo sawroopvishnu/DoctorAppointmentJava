@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.doctorappointmentapp.entity.PatientAppointment;
-import com.doctorappointmentapp.request.AppointmentRequest;
-import com.doctorappointmentapp.response.AppointmentStatusResponse;
+import com.doctorappointmentapp.requestDto.AppointmentRequest;
+import com.doctorappointmentapp.responseDto.AppointmentStatusResponse;
 import com.doctorappointmentapp.service.AppointmentService;
 import com.doctorappointmentapp.service.DoctorService;
 

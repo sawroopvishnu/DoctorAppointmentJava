@@ -1,4 +1,4 @@
-package com.doctorappointmentapp.request;
+package com.doctorappointmentapp.requestDto;
 
 public class LoginRequest {
     private String username;

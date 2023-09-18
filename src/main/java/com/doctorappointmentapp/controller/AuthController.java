@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.doctorappointmentapp.entity.Doctor;
 import com.doctorappointmentapp.entity.Patient;
-import com.doctorappointmentapp.request.LoginRequest;
-import com.doctorappointmentapp.request.RegisterRequest;
+import com.doctorappointmentapp.requestDto.LoginRequest;
+import com.doctorappointmentapp.requestDto.RegisterRequest;
 import com.doctorappointmentapp.service.DoctorService;
 import com.doctorappointmentapp.service.PatientService;
 

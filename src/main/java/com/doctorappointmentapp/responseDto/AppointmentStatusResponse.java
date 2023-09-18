@@ -1,4 +1,4 @@
-package com.doctorappointmentapp.response;
+package com.doctorappointmentapp.responseDto;
 
 public class AppointmentStatusResponse {
 

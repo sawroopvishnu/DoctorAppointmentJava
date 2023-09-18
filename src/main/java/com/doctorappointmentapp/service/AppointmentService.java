@@ -10,7 +10,7 @@ import com.doctorappointmentapp.entity.Doctor;
 import com.doctorappointmentapp.entity.Patient;
 import com.doctorappointmentapp.entity.PatientAppointment;
 import com.doctorappointmentapp.repository.AppointmentRepository;
-import com.doctorappointmentapp.request.AppointmentRequest;
+import com.doctorappointmentapp.requestDto.AppointmentRequest;
 
 @Service
 public class AppointmentService {

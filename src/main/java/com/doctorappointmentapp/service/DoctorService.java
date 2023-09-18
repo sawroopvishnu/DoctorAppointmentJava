@@ -1,123 +1,36 @@
 package com.doctorappointmentapp.service;
 
+
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
-
 import com.doctorappointmentapp.entity.Doctor;
 import com.doctorappointmentapp.entity.PatientAppointment;
-import com.doctorappointmentapp.repository.AppointmentRepository;
-import com.doctorappointmentapp.repository.DoctorRepository;
-import com.doctorappointmentapp.request.LoginRequest;
-import com.doctorappointmentapp.request.RegisterRequest;
+import com.doctorappointmentapp.requestDto.LoginRequest;
+import com.doctorappointmentapp.requestDto.RegisterRequest;
 
-@Service
-public class DoctorService {
 
-    @Autowired
-    private DoctorRepository doctorRepository;
-    
-    @Autowired
-    private AppointmentRepository appointmentRepository;
+public interface DoctorService {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    
-    
-    
-    public List<Doctor> getAllDoctors() {
-        return doctorRepository.findAll();
-    }
+	Doctor loginDoctor(LoginRequest request);
 
-    public Optional<Doctor> getDoctorById(Long id) {
-        return doctorRepository.findById(id);
-    }
+	boolean registerDoctor(RegisterRequest request);
 
-    public Optional<Doctor> getDoctorByName(String fullName) {
-        return doctorRepository.findByFullName(fullName);
-    }
+	boolean acceptAppointment(Long id);
 
-    public void deleteDoctor(Long id) {
-        doctorRepository.deleteById(id);
-    }
+	boolean rejectAppointment(Long id);
 
-    public Doctor updateDoctor(Long id, Doctor updatedDoctor) {
-        Optional<Doctor> existingDoctorOptional = doctorRepository.findById(id);
-        if (existingDoctorOptional.isPresent()) {
-            Doctor existingDoctor = existingDoctorOptional.get();
-            existingDoctor.setFullName(updatedDoctor.getFullName());
-            existingDoctor.setSpecialization(updatedDoctor.getSpecialization());
-            existingDoctor.setQualification(updatedDoctor.getQualification());
-            existingDoctor.setExperience(updatedDoctor.getExperience());
-            existingDoctor.setProfileImageUrl(updatedDoctor.getProfileImageUrl());
-            // Update other fields as needed
+	List<Doctor> getAllDoctors();
 
-            return doctorRepository.save(existingDoctor);
-        } else {
-            throw new RuntimeException("Doctor not found with id: " + id);
-        }
-    }
-    
-    
-    public boolean acceptAppointment(Long appointmentId) {
-        Optional<PatientAppointment> appointmentOptional = appointmentRepository.findById(appointmentId);
-        if (appointmentOptional.isPresent()) {
-            PatientAppointment appointment = appointmentOptional.get();
-            appointment.setStatus("Accepted");
-            appointmentRepository.save(appointment);
-            return true;
-        }
-        return false;
-    }
+	Optional<Doctor> getDoctorById(Long id);
 
-    public boolean rejectAppointment(Long appointmentId) {
-        Optional<PatientAppointment> appointmentOptional = appointmentRepository.findById(appointmentId);
-        if (appointmentOptional.isPresent()) {
-            PatientAppointment appointment = appointmentOptional.get();
-            appointment.setStatus("Rejected");
-            appointmentRepository.save(appointment);
-            return true;
-        }
-        return false;
-    }
-    
-    
-    
-    // User Registration 
-    public boolean registerDoctor(RegisterRequest request) {
-        if (doctorRepository.existsByUsername(request.getUsername())) {
-            return false;
-        }
+	Optional<Doctor> getDoctorByName(String fullName);
 
-        Doctor doctor = new Doctor();
-        doctor.setUsername(request.getUsername());
-        doctor.setPassword(passwordEncoder.encode(request.getPassword()));
-        doctor.setFullName(request.getFullName());
-        doctor.setExperience(request.getExperience());
-        doctor.setSpecialization(request.getSpecialization());
-        doctor.setQualification(request.getQualification());
-        doctor.setProfileImageUrl(request.getProfileImageUrl());
+	Doctor updateDoctor(Long id, Doctor updatedDoctor);
 
-        doctorRepository.save(doctor);
-        return true;
-    }
+	void deleteDoctor(Long id);
 
-    public Doctor loginDoctor(LoginRequest request) {
-        Optional<Doctor> doctorOptional = doctorRepository.findByUsername(request.getUsername());
-        if (doctorOptional.isPresent()) {
-            Doctor doctor = doctorOptional.get();
-            if (passwordEncoder.matches(request.getPassword(), doctor.getPassword())) {
-                return doctor;
-            }
-        }
-        return null;
-    }
+	List<PatientAppointment> getAppointmentsForPatient(Long patientId);
 
-    public List<PatientAppointment> getAppointmentsForPatient(Long patientId) {
-        return appointmentRepository.findByPatientId(patientId);
-    }
+   
 }

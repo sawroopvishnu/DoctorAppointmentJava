@@ -10,54 +10,23 @@ import org.springframework.stereotype.Service;
 
 import com.doctorappointmentapp.entity.Patient;
 import com.doctorappointmentapp.repository.PatientRepository;
-import com.doctorappointmentapp.request.LoginRequest;
-import com.doctorappointmentapp.request.RegisterRequest;
-import com.doctorappointmentapp.response.PatientResponse;
+import com.doctorappointmentapp.requestDto.LoginRequest;
+import com.doctorappointmentapp.requestDto.RegisterRequest;
+import com.doctorappointmentapp.responseDto.PatientResponse;
 
-@Service
-public class PatientService {
+public interface PatientService {
 
-    @Autowired
-    private PatientRepository patientRepository;
+	List<PatientResponse> getAllPatient();
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+	Patient getPatientById(Long id);
 
-    public boolean registerPatient(RegisterRequest request) {
-        if (patientRepository.existsByUsername(request.getUsername())) {
-            return false;
-        }
+	String deletePatient(Long id);
 
-        Patient patient = new Patient();
-        patient.setUsername(request.getUsername());
-        patient.setPassword(passwordEncoder.encode(request.getPassword()));
-        patient.setFullName(request.getFullName());
+	Optional<Patient> findPatientByUsername(String username);
 
-        patientRepository.save(patient);
-        return true;
-    }
+	boolean registerPatient(RegisterRequest request);
 
-    public Patient loginPatient(LoginRequest request) {
-        Optional<Patient> patientOptional = patientRepository.findByUsername(request.getUsername());
-        if (patientOptional.isPresent()) {
-            Patient patient = patientOptional.get();
-            if (passwordEncoder.matches(request.getPassword(), patient.getPassword())) {
-                return patient;
-            }
-        }
-        return null;
-    }
-    
-    public List<PatientResponse> getAllPatient() {
-        List<Patient> patients = patientRepository.findAll();
-        List<PatientResponse> patientResponses = new ArrayList<>();
+	Patient loginPatient(LoginRequest request);
 
-        for (Patient patient : patients) {
-            PatientResponse response = new PatientResponse(patient.getId(), patient.getFullName());
-            patientResponses.add(response);
-        }
-
-        return patientResponses;
-    }
-
+   
 }
