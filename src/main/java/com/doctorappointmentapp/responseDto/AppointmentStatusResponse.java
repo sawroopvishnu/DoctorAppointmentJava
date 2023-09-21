@@ -2,7 +2,22 @@ package com.doctorappointmentapp.responseDto;
 
 public class AppointmentStatusResponse {
 
-    private Long appointmentId;
+	private String appointmentDateTime;
+	
+    public String getAppointmentDateTime() {
+		return appointmentDateTime;
+	}
+	public void setAppointmentDateTime(String appointmentDateTime) {
+		this.appointmentDateTime = appointmentDateTime;
+	}
+	public AppointmentStatusResponse(String appointmentDateTime) {
+		super();
+		this.appointmentDateTime = appointmentDateTime;
+	}
+    
+    
+    
+	private Long appointmentId;
     private String status;
     
     

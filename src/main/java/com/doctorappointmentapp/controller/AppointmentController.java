@@ -3,6 +3,7 @@ package com.doctorappointmentapp.controller;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -41,9 +42,13 @@ public class AppointmentController {
 
     @GetMapping("/{id}")
     public ResponseEntity<PatientAppointment> getAppointmentById(@PathVariable Long id) {
-        return appointmentService.getAppointmentById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        Optional<PatientAppointment> appointment = ((AppointmentService) appointmentService).getAppointmentById(id);
+        
+        if (appointment.isPresent()) {
+            return ResponseEntity.ok(appointment.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/doctor/{doctorId}")
