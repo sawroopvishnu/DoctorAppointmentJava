@@ -1,0 +1,661 @@
+{
+	"info": {
+		"_postman_id": "3ddc6429-7d7a-4c38-82a8-c767398d5c46",
+		"name": "Doctor Appointmets App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20406077"
+	},
+	"item": [
+		{
+			"name": "createAppointment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"patientName\": \"Jane Smith\",\r\n  \"age\": 30,\r\n  \"address\": \"123 Main St\",\r\n  \"contactNo\": \"123-456-7890\",\r\n  \"doctor\": {\r\n    \"id\": 2\r\n  },\r\n  \"patient\": {\r\n    \"id\": 2\r\n  },\r\n  \"notes\": \"Please bring your medical history\",\r\n  \"patientReport\": \"\" \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/appointments/createAppointment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"appointments",
+						"createAppointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllAppointments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"patientName\": \"Jane Smith\",\r\n  \"age\": 30,\r\n  \"address\": \"123 Main St\",\r\n  \"contactNo\": \"123-456-7890\",\r\n  \"doctor\": {\r\n    \"id\": 2\r\n  },\r\n  \"patient\": {\r\n    \"id\": 2\r\n  },\r\n  \"notes\": \"Please bring your medical history\",\r\n  \"patientReport\": \"\" \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/appointments/getAllAppointments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"appointments",
+						"getAllAppointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "geAppointmentsById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"patientName\": \"Jane Smith\",\r\n  \"age\": 30,\r\n  \"address\": \"123 Main St\",\r\n  \"contactNo\": \"123-456-7890\",\r\n  \"doctor\": {\r\n    \"id\": 2\r\n  },\r\n  \"patient\": {\r\n    \"id\": 2\r\n  },\r\n  \"notes\": \"Please bring your medical history\",\r\n  \"patientReport\": \"\" \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/appointments/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"appointments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctor/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"doctor@example11.com\",\r\n    \"password\": \"doctor1234\",\r\n    \"fullName\": \"Dr. John Doeo\",\r\n    \"specialization\" : \"heart\",\r\n    \"qualification\" : \"mbbs\",\r\n    \"experience\" : \"2years\",\r\n    \"profileImageUrl\": \"myimage.ping\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/auth/doctor/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"auth",
+						"doctor",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctor/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"doctor@example1.com\",\r\n    \"password\": \"doctor1234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/auth/doctor/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"auth",
+						"doctor",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patient/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"123\",\r\n    \"password\": \"12345\",\r\n    \"fullName\": \"aaaaa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/auth/patient/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"auth",
+						"patient",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patient/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"123\",\r\n    \"password\": \"12345\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/auth/patient/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"auth",
+						"patient",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getalldoctor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/doctors/getalldoctor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"doctors",
+						"getalldoctor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllPatient",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/patients/getAllPatient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"patients",
+						"getAllPatient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPatientbyName?",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/patients/find/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"patients",
+						"find",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPatientbyusername",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/patients/find/user@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"patients",
+						"find",
+						"user@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletepatient/id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/patients/deletepatient/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"patients",
+						"deletepatient",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getpatientById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/patients/getpatient/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"patients",
+						"getpatient",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appointments/doctor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/appointments/doctor/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"appointments",
+						"doctor",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appointments/status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/appointments/appointments/status/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"appointments",
+						"appointments",
+						"status",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appointments/{id}/accept",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/doctors/appointments/10/accept",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"doctors",
+						"appointments",
+						"10",
+						"accept"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appointments/{id}/reject",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/doctors/appointments/1/reject",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"doctors",
+						"appointments",
+						"1",
+						"reject"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getalldoctor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/doctors/getalldoctor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"doctors",
+						"getalldoctor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get doctor By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/doctors/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"doctors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Doctor By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patient@example.com\",\r\n    \"password\": \"patient123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9096/api/doctors/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9096",
+					"path": [
+						"api",
+						"doctors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
