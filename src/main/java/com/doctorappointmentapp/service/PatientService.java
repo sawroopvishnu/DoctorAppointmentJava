@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.doctorappointmentapp.entity.Patient;
 import com.doctorappointmentapp.repository.PatientRepository;
-import com.doctorappointmentapp.requestDto.LoginRequest;
-import com.doctorappointmentapp.requestDto.RegisterRequest;
+import com.doctorappointmentapp.requestDto.UserDto;
+//import com.doctorappointmentapp.requestDto.LoginRequest;
+//import com.doctorappointmentapp.requestDto.RegisterRequest;
 import com.doctorappointmentapp.responseDto.PatientResponse;
 
 public interface PatientService {
@@ -23,10 +27,16 @@ public interface PatientService {
 	String deletePatient(Long id);
 
 	Optional<Patient> findPatientByUsername(String username);
+//
+//	Patient loginPatient(UserDto request);
+//
+//	boolean registerPatient(UserDto request);
 
-	boolean registerPatient(RegisterRequest request);
-
-	Patient loginPatient(LoginRequest request);
+//	boolean registerPatient(RegisterRequest request);
+//
+//	Patient loginPatient(LoginRequest request);
+//
+//	ResponseEntity<?> login(LoginRequest authenticationRequest, HttpServletRequest request);
 
    
 }

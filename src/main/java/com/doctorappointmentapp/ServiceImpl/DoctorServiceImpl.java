@@ -11,8 +11,8 @@ import com.doctorappointmentapp.entity.Doctor;
 import com.doctorappointmentapp.entity.PatientAppointment;
 import com.doctorappointmentapp.repository.AppointmentRepository;
 import com.doctorappointmentapp.repository.DoctorRepository;
-import com.doctorappointmentapp.requestDto.LoginRequest;
-import com.doctorappointmentapp.requestDto.RegisterRequest;
+
+import com.doctorappointmentapp.requestDto.UserDto;
 import com.doctorappointmentapp.service.DoctorService;
 
 @Service
@@ -92,36 +92,36 @@ public class DoctorServiceImpl implements DoctorService {
 	    
 	    
 	    
-	    @Override
-	    public boolean registerDoctor(RegisterRequest request) {
-	        if (doctorRepository.existsByUsername(request.getUsername())) {
-	            return false;
-	        }
+//	    @Override
+//	    public boolean registerDoctor(UserDto request) {
+//	        if (doctorRepository.existsByUsername(request.getUsername())) {
+//	            return false;
+//	        }
+//
+//	        Doctor doctor = new Doctor();
+//	        doctor.setUsername(request.getUsername());
+//	        doctor.setPassword(passwordEncoder.encode(request.getPassword()));
+//	        doctor.setFullName(request.getFullName());
+//	        doctor.setExperience(request.getExperience());
+//	        doctor.setSpecialization(request.getSpecialization());
+//	        doctor.setQualification(request.getQualification());
+//	        doctor.setProfileImageUrl(request.getProfileImageUrl());
+//
+//	        doctorRepository.save(doctor);
+//	        return true;
+//	    }
 
-	        Doctor doctor = new Doctor();
-	        doctor.setUsername(request.getUsername());
-	        doctor.setPassword(passwordEncoder.encode(request.getPassword()));
-	        doctor.setFullName(request.getFullName());
-	        doctor.setExperience(request.getExperience());
-	        doctor.setSpecialization(request.getSpecialization());
-	        doctor.setQualification(request.getQualification());
-	        doctor.setProfileImageUrl(request.getProfileImageUrl());
-
-	        doctorRepository.save(doctor);
-	        return true;
-	    }
-
-	    @Override
-	    public Doctor loginDoctor(LoginRequest request) {
-	        Optional<Doctor> doctorOptional = doctorRepository.findByUsername(request.getUsername());
-	        if (doctorOptional.isPresent()) {
-	            Doctor doctor = doctorOptional.get();
-	            if (passwordEncoder.matches(request.getPassword(), doctor.getPassword())) {
-	                return doctor;
-	            }
-	        }
-	        return null;
-	    }
+//	    @Override
+//	    public Doctor loginDoctor(UserDto request) {
+//	        Doctor doctorOptional = doctorRepository.findByUsername(request.getUsername());
+//	        if (doctorOptional.isPresent()) {
+//	            Doctor doctor = doctorOptional.get();
+//	            if (passwordEncoder.matches(request.getPassword(), doctor.getPassword())) {
+//	                return doctor;
+//	            }
+//	        }
+//	        return null;
+//	    }
 
 	    @Override
 	    public List<PatientAppointment> getAppointmentsForPatient(Long patientId) {

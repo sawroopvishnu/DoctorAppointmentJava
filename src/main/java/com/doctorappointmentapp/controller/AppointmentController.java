@@ -26,7 +26,7 @@ import com.doctorappointmentapp.service.AppointmentService;
 import com.doctorappointmentapp.service.DoctorService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3003")
 @RequestMapping("/api/appointments")
 public class AppointmentController {
     @Autowired

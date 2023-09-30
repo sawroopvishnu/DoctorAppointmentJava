@@ -1,15 +1,22 @@
 package com.doctorappointmentapp.entity;
 
 
+import java.util.Collection;
+import java.util.Collections;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 
 @Entity
-public class Doctor {
+public class Doctor implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -51,7 +58,6 @@ public class Doctor {
 		this.experience = experience;
 		this.profileImageUrl = profileImageUrl;
 	}
-
 
 
 	public Long getId() {
@@ -147,11 +153,69 @@ public class Doctor {
 	public void setProfileImageUrl(String profileImageUrl) {
 		this.profileImageUrl = profileImageUrl;
 	}
-    
-    
-    
-    
-    
+
+
+
+	public boolean isPresent() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	public Doctor get() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+//	@Override
+//	public Collection<? extends GrantedAuthority> getAuthorities() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	@Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // Define the authorities for the Doctor role, e.g., "ROLE_DOCTOR".
+        return Collections.singleton(new SimpleGrantedAuthority("ROLE_DOCTOR"));
+    }
+
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+
+
+
     
 
 
