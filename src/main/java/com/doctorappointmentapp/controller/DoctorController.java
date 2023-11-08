@@ -34,7 +34,7 @@ public class DoctorController {
 //more code down
     
     
-    @PutMapping("/appointments/{id}/accept")
+    @PutMapping("/appointments/accept/{id}")
     public ResponseEntity<?> acceptAppointment(@PathVariable Long id) {
         boolean accepted = doctorService.acceptAppointment(id);
         if (accepted) {
@@ -44,7 +44,7 @@ public class DoctorController {
         }
     }
 
-    @PutMapping("/appointments/{id}/reject")
+    @PutMapping("/appointments/reject/{id}")
     public ResponseEntity<?> rejectAppointment(@PathVariable Long id) {
         boolean rejected = doctorService.rejectAppointment(id);
         if (rejected) {

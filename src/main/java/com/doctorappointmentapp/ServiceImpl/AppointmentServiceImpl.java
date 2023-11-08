@@ -63,16 +63,16 @@ public class AppointmentServiceImpl implements AppointmentService {
 	        return false;
 	    }
 
-	    public boolean uploadPatientReport(Long appointmentId, byte[] report) {
-	        Optional<PatientAppointment> appointmentOptional = appointmentRepository.findById(appointmentId);
-	        if (appointmentOptional.isPresent()) {
-	            PatientAppointment appointment = appointmentOptional.get();
-	            appointment.setPatientReport(report);
-	            appointmentRepository.save(appointment);
-	            return true;
-	        }
-	        return false;
-	    }
+//	    public boolean uploadPatientReport(Long appointmentId, byte[] report) {
+//	        Optional<PatientAppointment> appointmentOptional = appointmentRepository.findById(appointmentId);
+//	        if (appointmentOptional.isPresent()) {
+//	            PatientAppointment appointment = appointmentOptional.get();
+//	            appointment.setPatientReport(report);
+//	            appointmentRepository.save(appointment);
+//	            return true;
+//	        }
+//	        return false;
+//	    }
 
 	    public boolean cancelAppointment(Long appointmentId) {
 	        Optional<PatientAppointment> appointmentOptional = appointmentRepository.findById(appointmentId);

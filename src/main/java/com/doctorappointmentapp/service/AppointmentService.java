@@ -25,13 +25,11 @@ public interface AppointmentService {
 
 	boolean updateAppointmentStatus(Long id, String status);
 
-	boolean uploadPatientReport(Long id, byte[] report);
+	//boolean uploadPatientReport(Long id, byte[] report);
 
 	boolean cancelAppointment(Long id);
 
 	PatientAppointment createAppointment(AppointmentRequest appointment);
-
-
 
 	Optional<PatientAppointment> getAppointmentById(Long id);
 
